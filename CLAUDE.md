@@ -57,9 +57,9 @@ Opravy z kontrol (stav k 2026-11-05):
 5. [x] Reduced motion se respektuje. **Nová chyba:** bez animace nepřijde `transitionend`, takže karusel po pár kliknutích „dojede na konec“ a zasekne se. Opravit spolu s bodem 4.
 6. [x] `data.js`: med má vlastní název a popis.
 7. [x] `style.css`: duplicity sloučené, vzhled beze změny (2026-11-05).
-8. [ ] `header-posters.png` má 3 MB, zmenšit a zkomprimovat.
+8. [x] Hlavička je teď `header-posters.jpg` (0,9 MB), PNG smazán (2026-11-05). Případně ještě zmenšit pod 500 kB.
 9. [x] Karty „Přidat nabídku“ smazané z HTML, vytváří je jen JS (`createAddCard`) (2026-11-05).
-10. [ ] Přidat `.gitignore` s `._*` a smazat z repozitáře `images/._header-posters.png`.
+10. [x] `.gitignore` (`._*`, `.DS_Store`) přidán, `._` soubory z repozitáře pryč (2026-11-05).
 11. [ ] Drobnost: v `index.html` na řádku 42 je tlačítko na stejném řádku jako `<div class="carousel">`.
 
 ## Nápady a úkoly do budoucna
