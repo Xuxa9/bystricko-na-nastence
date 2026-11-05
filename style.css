@@ -44,7 +44,7 @@ a {
     min-height: 440px;
     background:
         linear-gradient(rgba(30, 24, 19, 0.25), rgba(30, 24, 19, 0.25)),
-        url("images/header-posters.png") center 45% / cover no-repeat;
+        url("images/header-posters.jpg") center 45% / cover no-repeat;
 
     display: flex;
     align-items: center;

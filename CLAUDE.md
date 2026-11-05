@@ -47,10 +47,10 @@ Začít jednoduše, později rozšiřovat.
 - 2026-11-05: Druhá kontrola kódu, autorka koupila doménu `nanastence.cz`.
 
 ## Na čem právě pracujeme
-1. Napojení domény `nanastence.cz` na GitHub Pages (DNS u Webglobe, potom HTTPS).
+1. Napojení domény `nanastence.cz` na GitHub Pages (DNS u Webglobe, potom HTTPS). Domluveno na příště, postup už autorka dostala 2026-11-05.
 
 Opravy z kontrol (stav k 2026-11-05):
-1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran.
+1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran. **Odloženo**, až budou nahrané první plakáty.
 2. [x] Kategorie karuselu přes `data-category`.
 3. [x] Názvy kategorií přes `categoryNames`.
 4. [ ] Karusel: rychlé klikání může „rozbít“ pozici, a při málo plakátech se vedle sebe ukazují kopie.
