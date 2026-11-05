@@ -161,8 +161,8 @@ function createAddCard(category) {
     const link = document.createElement("a");
     link.className = "offer-link";
     link.href = category === "pohyb"
-        ? "mailto:vas@email.cz?subject=Nabidka%20na%20Bystricko%20na%20nastence"
-        : "mailto:vas@email.cz?subject=Mistni%20nabidka";
+        ? "mailto:nanastence@email.cz?subject=Nabidka%20na%20Bystricko%20na%20nastence"
+        : "mailto:nanastence@email.cz?subject=Mistni%20nabidka";
     link.textContent = "Přidat nabídku ↗";
 
     card.append(symbol, title, description, link);
@@ -241,15 +241,10 @@ function initCarousels() {
             track.style.transform = `translateX(-${offset}px)`;
         }
 
-        function move(direction) {
-            index += direction;
-            updatePosition(true);
-        }
+                let isMoving = false;
 
-        nextButton.addEventListener("click", () => move(1));
-        prevButton.addEventListener("click", () => move(-1));
-
-        track.addEventListener("transitionend", () => {
+        // Když jsme v kopiích, skočíme nenápadně zpět na originály.
+        function wrapIndex() {
             if (index >= originalCount * 2) {
                 index -= originalCount;
                 updatePosition(false);
@@ -257,6 +252,28 @@ function initCarousels() {
                 index += originalCount;
                 updatePosition(false);
             }
+        }
+
+        function move(direction) {
+            if (isMoving) return; // během animace další kliky ignorujeme
+
+            index += direction;
+
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reduceMotion) {
+                updatePosition(false);
+                wrapIndex(); // bez animace nepřijde transitionend, srovnáme hned
+                return;
+            }
+
+            isMoving = true;
+            updatePosition(true);
+        }
+
+        track.addEventListener("transitionend", event => {
+            if (event.target !== track) return; // jen animace samotného pásu
+            isMoving = false;
+            wrapIndex();
         });
 
         windowElement.addEventListener("touchstart", event => {

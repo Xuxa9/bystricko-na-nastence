@@ -19,7 +19,8 @@ po webech, Facebooku, plakátech a výlepových plochách. Web je jen **křižov
 Začít jednoduše, později rozšiřovat.
 
 - **Umístění:** flashka `NO NAME`, složka `kodovani`
-- **Stav:** zatím jen lokálně, později se bude pushovat na GitHub
+- **Stav:** online přes GitHub Pages, repozitář `Xuxa9/bystricko-na-nastence`, adresa https://xuxa9.github.io/bystricko-na-nastence/
+- **Doména:** `nanastence.cz` je koupená u Webglobe (DNS spravuje Webglobe). Napojení na GitHub Pages právě nastavujeme.
 
 ### Sekce
 - **Pohyb a kroužky:** sport, kroužky pro děti, cvičení pro dospělé, jóga, tanec, judo…
@@ -42,17 +43,24 @@ Začít jednoduše, později rozšiřovat.
 - 2026-11-03: Domluvili jsme, jak spolu budeme pracovat, a založili jsme tento soubor.
 - 2026-11-03: Autorka představila projekt a Claude udělal první kontrolu kódu (viz níže).
 
+- 2026-11-04: Projekt je na GitHubu a online přes GitHub Pages.
+- 2026-11-05: Druhá kontrola kódu, autorka koupila doménu `nanastence.cz`.
+
 ## Na čem právě pracujeme
-Opravy z první kontroly (2026-11-03), postupně po jedné:
-1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 180px + `object-fit: cover`), vyřešit poměr stran.
-2. [ ] Kategorie karuselu se pozná podle `#movement-title`, nahradit atributem `data-category` (kvůli dalším karuselům).
-3. [ ] Popisek kategorie v kartě je jen „ano/ne“ (pohyb, nebo nabídka), nahradit přehledem názvů kategorií.
+1. Napojení domény `nanastence.cz` na GitHub Pages (DNS u Webglobe, potom HTTPS).
+
+Opravy z kontrol (stav k 2026-11-05):
+1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran.
+2. [x] Kategorie karuselu přes `data-category`.
+3. [x] Názvy kategorií přes `categoryNames`.
 4. [ ] Karusel: rychlé klikání může „rozbít“ pozici, a při málo plakátech se vedle sebe ukazují kopie.
-5. [ ] JS přepisuje `transition`, takže se ignoruje nastavení „omezit pohyb“ (prefers-reduced-motion).
-6. [ ] `data.js`: druhá nabídka (`med-bystrice-001`) má zkopírovaný název a popis z DDM.
-7. [ ] `style.css`: `.offer-card` a `.add-card` jsou definované dvakrát s jinými hodnotami, sjednotit.
+5. [x] Reduced motion se respektuje. **Nová chyba:** bez animace nepřijde `transitionend`, takže karusel po pár kliknutích „dojede na konec“ a zasekne se. Opravit spolu s bodem 4.
+6. [x] `data.js`: med má vlastní název a popis.
+7. [x] `style.css`: duplicity sloučené, vzhled beze změny (2026-11-05).
 8. [ ] `header-posters.png` má 3 MB, zmenšit a zkomprimovat.
-9. [ ] Karty „Přidat nabídku“ jsou v HTML i v JS (duplicita textů a e-mailu).
+9. [x] Karty „Přidat nabídku“ smazané z HTML, vytváří je jen JS (`createAddCard`) (2026-11-05).
+10. [ ] Přidat `.gitignore` s `._*` a smazat z repozitáře `images/._header-posters.png`.
+11. [ ] Drobnost: v `index.html` na řádku 42 je tlačítko na stejném řádku jako `<div class="carousel">`.
 
 ## Nápady a úkoly do budoucna
 - Filtrování: děti / dospělí.
