@@ -19,8 +19,10 @@ po webech, Facebooku, plakátech a výlepových plochách. Web je jen **křižov
 Začít jednoduše, později rozšiřovat.
 
 - **Umístění:** flashka `NO NAME`, složka `kodovani`
-- **Stav:** online přes GitHub Pages, repozitář `Xuxa9/bystricko-na-nastence`, adresa https://xuxa9.github.io/bystricko-na-nastence/
-- **Doména:** `nanastence.cz` je koupená u Webglobe (DNS spravuje Webglobe). Napojení na GitHub Pages právě nastavujeme.
+- **Stav:** online na **https://nanastence.cz** (GitHub Pages, repozitář `Xuxa9/bystricko-na-nastence`).
+- **Doména:** `nanastence.cz` u Webglobe (DNS spravuje Webglobe). Napojená na GitHub Pages, HTTPS vynucené,
+  doména ověřená v GitHub účtu. Záznamy ve Webglobe nemazat: 4× A, CNAME `www`, TXT `_github-pages-challenge-xuxa9`,
+  MX a SPF TXT (e-mail). Certifikát Let's Encrypt obnovuje GitHub sám.
 
 ### Sekce
 - **Pohyb a kroužky:** sport, kroužky pro děti, cvičení pro dospělé, jóga, tanec, judo…
@@ -33,11 +35,13 @@ Začít jednoduše, později rozšiřovat.
   location {city, venue, address}, audience ["deti","dospeli"], publishedFrom, expiresAt (formát RRRR-MM-DD).
 - `script.js`: vybere platné nabídky podle data, vykreslí karty do karuselů a ovládá karusel (šipky i swipe).
 - `style.css`: vzhled. Barvy jsou v proměnných v `:root`, šablony mají třídy `template-*`.
-- `images/`: obrázky, zatím `header-posters.png` (pozadí hlavičky).
+- `images/`: obrázky, zatím `header-posters.jpg` (pozadí hlavičky).
+- `CNAME`: obsahuje `nanastence.cz`, potřebuje ho GitHub Pages. Nemazat.
 
 ### Obsah a provoz
 - Plakáty zatím zadává autorka ručně do `data.js`.
-- V plánu je e-mail pro zasílání nabídek (v kódu je zatím zástupný `vas@email.cz`), zvažuje i Facebookovou stránku.
+- E-mail pro zasílání nabídek: `nanastence@email.cz` (Seznam), v kódu v `script.js` (`createAddCard`).
+  E-mail na vlastní doméně autorka nechce. Zvažuje i Facebookovou stránku.
 
 ## Co už jsme udělali
 - 2026-11-03: Domluvili jsme, jak spolu budeme pracovat, a založili jsme tento soubor.
@@ -45,9 +49,31 @@ Začít jednoduše, později rozšiřovat.
 
 - 2026-11-04: Projekt je na GitHubu a online přes GitHub Pages.
 - 2026-11-05: Druhá kontrola kódu, autorka koupila doménu `nanastence.cz`.
+- 2026-11-05: Doména napojená: 4× A na `185.199.108–111.153`, `www` CNAME na `xuxa9.github.io.`, soubor `CNAME` v repozitáři. http://nanastence.cz funguje. MX a SPF záznamy Webglobe zůstaly (e-mail).
+- 2026-11-07: **Doména hotová.** Certifikát vydán (po znovuzadání domény v Pages), Enforce HTTPS zapnuté
+  (http → https funguje), doména ověřená přes TXT („Verified“ v GitHub účtu).
 
 ## Na čem právě pracujeme
-1. Napojení domény `nanastence.cz` na GitHub Pages (DNS u Webglobe, potom HTTPS). Domluveno na příště, postup už autorka dostala 2026-11-05.
+1. [ ] Oprava karuselu (body 4 a 5 v opravách níže, kód už autorka dostala 2026-11-05).
+
+## Další úkoly (zadáno 2026-11-05)
+Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začnou přidávat skutečné plakáty, pak B.
+
+**A. Před přidáním plakátů**
+1. [ ] **Ochrana osobních údajů:** sepsat a zveřejnit na webu. Obsah: kdo je správce, účel zveřejňování,
+   práva lidí, jak požádat o úpravu nebo odstranění plakátu, jak dlouho se data uchovávají.
+   Hlavně **stručně a srozumitelně**.
+2. [ ] **Šablona e-mailu** pro první oslovení (sportovní kluby, jóga, kroužky…): představit projekt, vysvětlit,
+   že jde o **bezplatnou službu**, nabídnout zveřejnění plakátu, požádat o zaslání plakátu a o souhlas
+   se zveřejněním (hlavně když jsou na plakátu osobní údaje).
+3. [ ] **Šablona souhlasu se zveřejněním** a vymyslet, jakou formou se bude udělovat.
+
+**B. Po přidání plakátů**
+4. [ ] **Evidence** zveřejněných plakátů a souhlasů.
+5. [ ] **Pravidla pro přijímání a odmítání plakátů**, včetně výhrady práva něco nezveřejnit. Vyvěsit na webu.
+6. [ ] **Zvětšení plakátu** po kliknutí na kartu v karuselu.
+7. [ ] **Upravit popis karuselu „Místní nabídka“.** Zatím bude sloužit pro všechno, co není pohyb a kroužky
+   (workshop, lampionový průvod, reklama na centrum pro děti, nabídka sádrových odlitků…).
 
 Opravy z kontrol (stav k 2026-11-05):
 1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran. **Odloženo**, až budou nahrané první plakáty.
@@ -67,5 +93,3 @@ Opravy z kontrol (stav k 2026-11-05):
 - Filtrování podle lokality: Bystřice a okolní obce.
 - Karusel **Služby** s filtrováním podle kategorie a lokality.
 - Kontaktní formulář a automatizace přidávání nabídek.
-- Založit e-mail pro nabídky a nahradit `vas@email.cz`.
-- Naučit se Git a nahrát projekt na GitHub (`._*` soubory z macOS dát do `.gitignore`).
