@@ -298,6 +298,88 @@ a {
     outline-offset: 3px;
 }
 
+/* O PROJEKTU */
+
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 52px 64px 60px;
+}
+
+.about-section h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.25;
+    color: var(--brown-dark);
+}
+
+.about-section p {
+    max-width: 105ch;
+    margin: 0 0 14px;
+    color: var(--muted);
+}
+.about-content {
+    border-left: 4px solid var(--brown);
+    padding-left: 24px;
+}
+
+/* TEXTOVÉ STRÁNKY (pravidla, ochrana údajů) */
+
+.page-header {
+    padding: 18px 20px;
+    background: var(--brown-dark);
+}
+
+.page-header a {
+    color: var(--cream-light);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.page-header a:hover {
+    text-decoration: underline;
+}
+
+.page-header a:focus-visible {
+    outline: 3px solid #98724d;
+    outline-offset: 3px;
+}
+
+.text-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 52px 64px 60px;
+}
+
+.text-page h1 {
+    margin: 0 0 18px;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--brown-dark);
+}
+
+.text-page h2 {
+    margin: 32px 0 8px;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--brown-dark);
+}
+
+.text-page p,
+.text-page li {
+    max-width: 105ch;
+    color: var(--muted);
+}
+
+.text-page p {
+    margin: 0 0 14px;
+}
+
+.text-page ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+}
+
 
 /* PATIČKA */
 
@@ -311,6 +393,23 @@ a {
 
 .site-footer p {
     margin: 0;
+}
+
+.footer-links {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
+}
+
+.footer-links a {
+    color: var(--cream-light);
+}
+
+.footer-links a:focus-visible {
+    outline: 3px solid #98724d;
+    outline-offset: 3px;
 }
 
 
@@ -337,6 +436,14 @@ a {
     .section-heading {
         padding: 0 20px;
         margin-bottom: 18px;
+    }
+
+    .about-section {
+        padding: 36px 20px 44px;
+    }
+    
+    .text-page {
+        padding: 36px 20px 44px;
     }
 
     .carousel {

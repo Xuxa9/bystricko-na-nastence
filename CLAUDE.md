@@ -53,8 +53,27 @@ Začít jednoduše, později rozšiřovat.
 - 2026-11-07: **Doména hotová.** Certifikát vydán (po znovuzadání domény v Pages), Enforce HTTPS zapnuté
   (http → https funguje), doména ověřená přes TXT („Verified“ v GitHub účtu).
 
+## Příště začneme
+**Ochrana osobních údajů:** vytvořit `ochrana-udaju.html` (kopie kostry `pravidla.html`) a napsat text.
+Podklady jsou níže (správce, uchovávání, souhlas). Odkaz na ni už je v patičce i v pravidlech.
+Stav 2026-11-08: „O projektu“ hotové, `pravidla.html` vytvořené a autorka do nich vkládá text
+(včetně části „Jak poslat nabídku“). Zatím necommitnuto, připomenout commit.
+
 ## Na čem právě pracujeme
-1. [ ] Oprava karuselu (body 4 a 5 v opravách níže, kód už autorka dostala 2026-11-05).
+1. [ ] Informační stránky: **O projektu**, **Pravidla pro zveřejňování plakátů**, **Ochrana osobních údajů** (od 2026-11-08).
+   Postup: a) domluvit umístění a zobrazení, b) kód, c) samotné texty.
+   - a) **Rozhodnuto (2026-11-08):** krátká sekce „O projektu“ na hlavní stránce pod karusely (`#o-projektu`).
+     `pravidla.html` a `ochrana-udaju.html` jsou samostatné stránky, odkazy na ně v patičce.
+   - **Správce osobních údajů:** Zuzana Horáková, fyzická osoba, kontakt `nanastence@email.cz`.
+     (Pozor: v Gitu je jméno autora commitů jiné. Do textů na web patří **Zuzana Horáková**.)
+   - **Souhlas se zveřejněním:** věta v e-mailu, žádné PDF. E-mail je zároveň doklad.
+   - **Uchovávání e-mailů:** po dobu zveřejnění, pak **nejdéle 2 roky po ukončení**. Na požádání smazat dříve.
+     Postup v Seznamu: složky „Nabídky – zveřejněné“ (nemazat) a „Nabídky – ukončené“ (sem přesunout
+     při odstranění nabídky z `data.js`). Ukončené mazat hromadně **jednou ročně**.
+   - **Citlivé údaje na plakátech:** nezakazovat, autorka je spravuje opatrněji. Pozor: smazaný obrázek
+     zůstává v historii GitHubu. U citlivých nabídek proto zvážit plakát ze šablony (text) místo nahraného obrázku.
+   - Při úklidu nabídek mazat z `data.js` i obrázky z `images/` (skryté plakáty jsou jinak pořád veřejně dostupné).
+- Oprava karuselu (body 4 a 5 níže) je **odložená** (rozhodnutí autorky 2026-11-08).
 
 ## Další úkoly (zadáno 2026-11-05)
 Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začnou přidávat skutečné plakáty, pak B.
@@ -77,6 +96,16 @@ Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začno
 
 Opravy z kontrol (stav k 2026-11-05):
 1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran. **Odloženo**, až budou nahrané první plakáty.
+   Varianta A4 + `object-fit: contain` **zrušena** (2026-11-08). Autorka chce **plakáty v přirozené velikosti**:
+   stejná šířka, zarovnané nahoře „na jednu linku“, spodek různě dlouhý, jako na skutečné nástěnce.
+   Technicky: `height: auto` u obrázku a `align-items: flex-start` u `.carousel-track`, plus strop `max-height`.
+   **Rozhodnuto (2026-11-08), spojíme obě varianty:**
+   - plakáty s obrázkem: přirozená výška, zarovnané nahoře, **izolepa** přes horní rohy (`::before`/`::after`),
+     stín a jemné natočení (−1° až +1°, podle pořadí jako dřív barvy),
+   - karty ze šablony: **připínáček** místo izolepy,
+   - **barevné kruhy u šablon smazat** (autorce se nelíbí): `colorsOne`/`colorsTwo`/`sizes` v `script.js`
+     a pravidla `template-*::before/::after` ve `style.css`.
+   Pořadí: nejdřív zvětšení po kliknutí (B6), pak přirozená výška, nakonec izolepa a připínáčky.
 2. [x] Kategorie karuselu přes `data-category`.
 3. [x] Názvy kategorií přes `categoryNames`.
 4. [ ] Karusel: rychlé klikání může „rozbít“ pozici, a při málo plakátech se vedle sebe ukazují kopie.
@@ -92,4 +121,6 @@ Opravy z kontrol (stav k 2026-11-05):
 - Filtrování: děti / dospělí.
 - Filtrování podle lokality: Bystřice a okolní obce.
 - Karusel **Služby** s filtrováním podle kategorie a lokality.
-- Kontaktní formulář a automatizace přidávání nabídek.
+- Kontaktní formulář a automatizace přidávání nabídek. Položky formuláře jsou stejné jako v `pravidla.html`, část
+  „Jak poslat nabídku“ (kam patří, název, popis, místo, od–do, podrobnosti, pro koho, odkaz, obrázek, souhlas).
+  GitHub Pages formuláře sám neodesílá, bude potřeba externí služba.
