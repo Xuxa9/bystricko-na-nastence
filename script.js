@@ -33,39 +33,9 @@ function createOfferCard(offer, index = 0) {
     const card = document.createElement("article");
     card.className = "offer-card";
 
-    // Barvy a velikosti dekorativních tvarů
-const colorsOne = {
-    pohyb: ["#c6cbb5", "#d2dce0", "#c9c0d2", "#bfc9bc"],
-    nabidka: ["#ddc3a3", "#d5b7b0", "#d0bfae", "#e0c9ae"]
-};
-
-const colorsTwo = {
-    pohyb: ["#a6ad91", "#aebfc5", "#b5a9c2", "#a5b29f"],
-    nabidka: ["#d8a184", "#c99e98", "#bda58e", "#c9a47e"]
-};
-
-// Dekorace se použije jen u podporovaných šablon
-const palette = offer.template;
-const colorIndex = index % 4;
-
-if (colorsOne[palette] && colorsTwo[palette]) {
-    card.style.setProperty("--color-one", colorsOne[palette][colorIndex]);
-    card.style.setProperty("--color-two", colorsTwo[palette][colorIndex]);
-
-    const sizes = [
-        [120, 170, 230, 150],
-        [160, 130, 190, 170],
-        [190, 150, 140, 210],
-        [140, 190, 210, 130]
-    ];
-
-    const size = sizes[colorIndex];
-
-    card.style.setProperty("--shape-one-width", `${size[0]}px`);
-    card.style.setProperty("--shape-one-height", `${size[1]}px`);
-    card.style.setProperty("--shape-two-width", `${size[2]}px`);
-    card.style.setProperty("--shape-two-height", `${size[3]}px`);
-}
+    // Lehké natočení lístku – každý trochu jinak, podle pořadí
+    const tilts = [-1.2, 0.8, -0.6, 1.1];
+    card.style.setProperty("--tilt", `${tilts[index % 4]}deg`);
 
     if (offer.template) {
         card.classList.add(`template-${offer.template}`);
@@ -81,10 +51,6 @@ if (colorsOne[palette] && colorsTwo[palette]) {
 
     const info = document.createElement("div");
     info.className = "offer-info";
-
-    const category = document.createElement("span");
-    category.className = "offer-category";
-    category.textContent = categoryNames[offer.category] || offer.category;
 
     const title = document.createElement("h3");
     title.textContent = offer.title;
@@ -102,7 +68,7 @@ if (colorsOne[palette] && colorsTwo[palette]) {
 
     location.textContent = locationParts.join(", ");
 
-    info.append(category, title, description);
+    info.append(title, description);
 
     if (offer.details?.length) {
     const details = document.createElement("ul");
@@ -153,22 +119,25 @@ function createAddCard(category) {
         ? "Chcete tu být také?"
         : "Máte co nabídnout?";
 
-    const description = document.createElement("p");
-    description.textContent = category === "pohyb"
-        ? "Pošlete nám svou nabídku a pomozte rozšířit místní přehled."
-        : "Dejte o sobě vědět lidem z Bystřicka.";
-
-    const link = document.createElement("a");
-    link.className = "offer-link";
-    link.href = category === "pohyb"
+    // Popisek s klikací e-mailovou adresou
+    const emailLink = document.createElement("a");
+    emailLink.href = category === "pohyb"
         ? "mailto:nanastence@email.cz?subject=Nabidka%20na%20Bystricko%20na%20nastence"
         : "mailto:nanastence@email.cz?subject=Mistni%20nabidka";
-    link.textContent = "Přidat nabídku ↗";
+    emailLink.textContent = "nanastence@email.cz";
 
-    card.append(symbol, title, description, link);
+    const description = document.createElement("p");
+    description.append("Stačí poslat jeden e-mail na ", emailLink, ".");
+
+    // Odkaz na pravidla s podrobným postupem
+    const rulesLink = document.createElement("a");
+    rulesLink.className = "offer-link";
+    rulesLink.href = "pravidla.html";
+    rulesLink.textContent = "Jak na to →";
+
+    card.append(symbol, title, description, rulesLink);
     return card;
 }
-
 
 /* =====================================
    4. VYKRESLENÍ NABÍDEK DO KARUSELŮ

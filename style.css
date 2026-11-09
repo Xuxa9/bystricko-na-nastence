@@ -126,10 +126,10 @@ a {
     display: flex;
     gap: 20px;
     align-items: stretch;
+    padding: 16px 0 32px;
     transition: transform 0.4s ease;
     will-change: transform;
 }
-
 
 /* KARTY NABÍDEK */
 
@@ -138,12 +138,20 @@ a {
     isolation: isolate;
     flex: 0 0 280px;
     min-width: 0;
-    background: #f7f1e7;
-    border: 1px solid rgba(89, 69, 54, 0.12);
-    border-radius: 12px;
-    overflow: hidden;
+    background: #fffdf7;
+    border-radius: 2px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 8px 18px rgba(40, 25, 10, 0.12);
+    overflow: visible;
     display: flex;
     flex-direction: column;
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.2s ease;
+}
+
+.offer-card:hover {
+    transform: rotate(0deg) translateY(-3px);
 }
 
 .offer-card > img {
@@ -163,16 +171,6 @@ a {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.offer-category {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: var(--brown);
-    font-size: 0.76rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
 }
 
 .offer-info h3,
@@ -221,28 +219,45 @@ a {
 /* KARTA PRO PŘIDÁNÍ NABÍDKY */
 
 .add-card {
-    padding: 24px;
+    --tilt: 1.8deg;
+    flex-basis: 240px;
+    align-self: flex-start;
+    min-height: 240px;
+    padding: 24px 20px 20px;
     justify-content: center;
-    background: #644e3c;
-    border: 1px solid #594536;
-    color: #faf7f1;
+    background: linear-gradient(to bottom, #fbf4c4 0%, #f7eeb1 100%);
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.10),
+        6px 10px 14px -6px rgba(40, 25, 10, 0.30);
+}
+
+/* Lepicí proužek nahoře – o odstín tmavší */
+.add-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 22px;
+    background: rgba(200, 175, 60, 0.12);
+    pointer-events: none;
 }
 
 .add-card h3 {
-    color: #faf7f1;
+    color: var(--brown-dark);
 }
 
 .add-card p {
-    color: #d2c6b8;
-}
-
-.add-card .add-symbol {
-    border-color: #c9bba9;
-    color: #f2ede4;
+    color: #6a5d45;
 }
 
 .add-card .offer-link {
-    color: #e4d4c0;
+    color: var(--brown);
+}
+
+.add-card p a {
+    color: var(--brown);
+    font-weight: 700;
 }
 
 .add-symbol {
@@ -365,6 +380,12 @@ a {
     color: var(--brown-dark);
 }
 
+.text-page h3 {
+    margin: 20px 0 6px;
+    font-size: 1.05rem;
+    color: var(--brown);
+}
+
 .text-page p,
 .text-page li {
     max-width: 105ch;
@@ -441,7 +462,7 @@ a {
     .about-section {
         padding: 36px 20px 44px;
     }
-    
+
     .text-page {
         padding: 36px 20px 44px;
     }
@@ -476,49 +497,47 @@ a {
     .carousel-track {
         transition: none;
     }
+
+    .offer-card {
+        transition: none;
+    }
 }
 
 
 /* =====================================
-   NEUTRÁLNÍ ŠABLONY NABÍDEK
+   LÍSTKY ZE ŠABLONY
 ===================================== */
-
-/* Dekorativní barevné tvary na pozadí */
-/* Základ dekorativních tvarů – pouze grafické šablony */
-.offer-card.template-pohyb::before,
-.offer-card.template-pohyb::after,
-.offer-card.template-nabidka::before,
-.offer-card.template-nabidka::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* První tvar */
-.offer-card.template-pohyb::before,
-.offer-card.template-nabidka::before {
-    top: -45px;
-    left: -35px;
-    width: var(--shape-one-width, 170px);
-    height: var(--shape-one-height, 150px);
-    background: var(--color-one);
-}
-
-/* Druhý tvar */
-.offer-card.template-pohyb::after,
-.offer-card.template-nabidka::after {
-    bottom: -65px;
-    right: -35px;
-    width: var(--shape-two-width, 230px);
-    height: var(--shape-two-height, 150px);
-    background: var(--color-two);
-}
 
 /* Když nabídka nemá vlastní obrázek */
 .offer-card:not(.add-card):not(:has(img)) {
     min-height: 300px;
+}
+
+/* Stříbrný připínáček – jen lístky ze šablony (bez obrázku) */
+.offer-card:not(.add-card):not(:has(img))::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: -7px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%,
+        #ffffff 0%,
+        #e4e7ea 22%,
+        #a9b0b7 58%,
+        #6d747b 100%);
+    box-shadow:
+        1px 3px 4px rgba(0, 0, 0, 0.35),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+/* Trochu víc místa nahoře, aby připínáček nepřekrýval nadpis */
+.offer-card:not(.add-card):not(:has(img)) .offer-info {
+    padding-top: 28px;
 }
 
 
