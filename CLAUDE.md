@@ -33,6 +33,9 @@ Začít jednoduše, později rozšiřovat.
 - Plakáty jsou dvojího typu: **hotový plakát** (obrázek) nebo **plakát ze šablony** (`template`: pohyb / nabidka / akce).
 - `data.js`: pole `offers`, každá nabídka má id, category, title, description, image, template, link,
   location {city, venue, address}, audience ["deti","dospeli"], publishedFrom, expiresAt (formát RRRR-MM-DD).
+- **Pravidlo pro `id` (rozhodnuto 2026-11-09):** `lokace-kategorie-o-co-jde-cislo`, např. `bystrice-pohyb-badminton-1`.
+  Malá písmena, bez diakritiky, vše oddělené pomlčkami. Číslo `1`, vyšší (`2`, `3`…) jen když stejná kombinace už existuje.
+  ID musí být jedinečné a po zapsání do evidence se nemění.
 - `script.js`: vybere platné nabídky podle data, vykreslí karty do karuselů a ovládá karusel (šipky i swipe).
 - `style.css`: vzhled. Barvy jsou v proměnných v `:root`, šablony mají třídy `template-*`.
 - `images/`: obrázky, zatím `header-posters.jpg` (pozadí hlavičky).
@@ -54,6 +57,16 @@ Začít jednoduše, později rozšiřovat.
   (http → https funguje), doména ověřená přes TXT („Verified“ v GitHub účtu).
 - 2026-11-08: **Informační stránky online** (commit `ae4fb5d`): sekce „O projektu“ na hlavní stránce,
   `pravidla.html` a `ochrana-udaju.html`, odkazy v patičce. Úkoly A1 a částečně A3 (forma souhlasu) splněny.
+
+## Stav 2026-11-09
+- Karusel: šipky znovu fungují (chyběly `click` listenery), rychlé klikání a reduced motion jsou opravené. Kopie při málo kartách jsou odložené.
+- Přidáno 6 oddílů Sokola jako samostatné lístky bez místa (místo se může měnit kvůli nové sokolovně).
+  Autorka zvažuje poslat e-mail jednotlivým oddílům (text je v konverzaci 2026-11-09).
+- Některá ID v `data.js` ještě nejsou podle nového pravidla (`pohyb-bystrice-DDM-1`, `pohyb-bystrice-DDM-2`,
+  `pohyb-bystrice-areal-4`, `bystrice-pohyb-posilovna-2`, `med-bystrice-001`). Nespěchá.
+- 2026-11-09: Hlavička vyměněna (stejný název `header-posters.jpg`, 0,9 MB), bez čitelných telefonních čísel (Claude ověřil).
+  **Otevřená otázka:** starý obrázek s čísly je pořád v historii Gitu. Autorka zatím nerozhodla, jestli historii čistit
+  (vyžaduje přepis historie a force push, Claude provede krok po kroku).
 
 ## Nový vzhled karet: HOTOVO 2026-11-09 (kroky 1–5)
 Kruhy a štítek kategorie jsou smazané. Lístky jsou papír se stínem, stříbrný připínáček (jen karty bez obrázku,
@@ -141,8 +154,11 @@ Opravy z kontrol (stav k 2026-11-05):
    Pořadí: nejdřív zvětšení po kliknutí (B6), pak přirozená výška, nakonec izolepa a připínáčky.
 2. [x] Kategorie karuselu přes `data-category`.
 3. [x] Názvy kategorií přes `categoryNames`.
-4. [ ] Karusel: rychlé klikání může „rozbít“ pozici, a při málo plakátech se vedle sebe ukazují kopie.
-5. [x] Reduced motion se respektuje. **Nová chyba:** bez animace nepřijde `transitionend`, takže karusel po pár kliknutích „dojede na konec“ a zasekne se. Opravit spolu s bodem 4.
+4. [~] Karusel: rychlé klikání **opraveno** (`isMoving`, 2026-11-09). Kopie při málo kartách **vědomě odloženo**,
+   autorka čeká, že se to vyřeší přibývajícími nabídkami. Pozor u nových karuselů (např. Služby) s málo kartami.
+   Návrh řešení: když `track.scrollWidth <= windowElement.clientWidth`, nevytvářet kopie a skrýt šipky
+   (pozor: `.carousel-button` má `display: grid`, takže atribut `hidden` potřebuje `.carousel-button[hidden] { display: none; }`).
+5. [x] Reduced motion se respektuje a zaseknutí bez `transitionend` je opravené (`wrapIndex`, 2026-11-09).
 6. [x] `data.js`: med má vlastní název a popis.
 7. [x] `style.css`: duplicity sloučené, vzhled beze změny (2026-11-05).
 8. [x] Hlavička je teď `header-posters.jpg` (0,9 MB), PNG smazán (2026-11-05). Případně ještě zmenšit pod 500 kB.

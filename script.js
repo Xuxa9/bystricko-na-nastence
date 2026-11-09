@@ -239,6 +239,10 @@ function initCarousels() {
             updatePosition(true);
         }
 
+        nextButton.addEventListener("click", () => move(1));
+
+        prevButton.addEventListener("click", () => move(-1));
+        
         track.addEventListener("transitionend", event => {
             if (event.target !== track) return; // jen animace samotného pásu
             isMoving = false;
