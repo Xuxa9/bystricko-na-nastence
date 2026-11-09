@@ -41,12 +41,20 @@ function createOfferCard(offer, index = 0) {
         card.classList.add(`template-${offer.template}`);
     }
 
-    if (offer.image) {
+        if (offer.image) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "poster-open";
+        button.dataset.link = offer.link || "";
+        button.setAttribute("aria-label", `Zvětšit plakát: ${offer.title}`);
+
         const img = document.createElement("img");
         img.src = offer.image;
         img.alt = offer.title;
         img.loading = "lazy";
-        card.appendChild(img);
+
+        button.appendChild(img);
+        card.appendChild(button);
     }
 
     const info = document.createElement("div");
@@ -242,7 +250,7 @@ function initCarousels() {
         nextButton.addEventListener("click", () => move(1));
 
         prevButton.addEventListener("click", () => move(-1));
-        
+
         track.addEventListener("transitionend", event => {
             if (event.target !== track) return; // jen animace samotného pásu
             isMoving = false;
@@ -271,10 +279,51 @@ function initCarousels() {
     });
 }
 
+/* =====================================
+   6. ZVĚTŠENÍ PLAKÁTU
+===================================== */
+
+function initPosterDialog() {
+    const dialog = document.querySelector("#poster-dialog");
+    if (!dialog) return;
+
+    const dialogImg = dialog.querySelector(".poster-dialog-img");
+    const dialogLink = dialog.querySelector(".poster-dialog-link");
+    const closeButton = dialog.querySelector(".poster-close");
+
+    // Jeden posluchač pro všechny plakáty – funguje i pro kopie v karuselu.
+    document.addEventListener("click", event => {
+        const button = event.target.closest(".poster-open");
+        if (!button) return;
+
+        const img = button.querySelector("img");
+        dialogImg.src = img.src;
+        dialogImg.alt = img.alt;
+
+        if (button.dataset.link) {
+            dialogLink.href = button.dataset.link;
+            dialogLink.hidden = false;
+        } else {
+            dialogLink.hidden = true;
+        }
+
+        dialog.showModal();
+    });
+
+    closeButton.addEventListener("click", () => dialog.close());
+
+    // Klik na tmavé pozadí mimo plakát okno zavře.
+    dialog.addEventListener("click", event => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+}
 
 /* =====================================
-   6. SPUŠTĚNÍ WEBU
+   7. SPUŠTĚNÍ WEBU
 ===================================== */
 
 renderOffers();
 initCarousels();
+initPosterDialog();

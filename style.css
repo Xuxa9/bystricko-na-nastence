@@ -125,7 +125,7 @@ a {
 .carousel-track {
     display: flex;
     gap: 20px;
-    align-items: stretch;
+    align-items: flex-start;
     padding: 16px 0 32px;
     transition: transform 0.4s ease;
     will-change: transform;
@@ -154,13 +154,13 @@ a {
     transform: rotate(0deg) translateY(-3px);
 }
 
-.offer-card > img {
+.poster-open img {
     display: block;
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    object-position: center;
-    background: #f7f1e7;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    border-radius: 2px;
 }
 
 .offer-info {
@@ -479,10 +479,6 @@ a {
         flex-basis: min(78vw, 280px);
     }
 
-    .offer-card > img {
-        height: 160px;
-    }
-
     /* Na mobilu se nabídky posouvají prstem. */
     .carousel-button {
         display: none;
@@ -540,4 +536,119 @@ a {
     padding-top: 28px;
 }
 
+/* =====================================
+   HOTOVÉ PLAKÁTY (karta s obrázkem)
+===================================== */
+
+/* U plakátu se text karty neukazuje – je na plakátu.
+   Odkaz bude ve zvětšení. */
+.offer-card:has(img) .offer-info {
+    display: none;
+}
+
+/* Izolepa přes horní rohy */
+.offer-card:has(img)::before,
+.offer-card:has(img)::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 4px;
+    width: 74px;
+    height: 24px;
+    background: rgba(255, 252, 235, 0.62);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+
+.offer-card:has(img)::before {
+    left: -18px;
+    transform: rotate(-35deg);
+}
+
+.offer-card:has(img)::after {
+    right: -18px;
+    transform: rotate(35deg);
+}
+
+/* Plakát jako tlačítko – bez vzhledu tlačítka */
+.poster-open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+}
+
+.poster-open:focus-visible {
+    outline: 3px solid #98724d;
+    outline-offset: 3px;
+}
+
+
+/* =====================================
+   ZVĚTŠENÝ PLAKÁT
+===================================== */
+
+.poster-dialog {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+}
+
+.poster-dialog::backdrop {
+    background: rgba(30, 24, 19, 0.85);
+}
+
+.poster-dialog-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.poster-dialog-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 92vw;
+    max-height: 80vh;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.poster-dialog-link {
+    color: var(--cream-light);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.poster-dialog-link:hover {
+    text-decoration: underline;
+}
+
+.poster-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--cream-light);
+    color: var(--brown-dark);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.poster-close:focus-visible,
+.poster-dialog-link:focus-visible {
+    outline: 3px solid #98724d;
+    outline-offset: 3px;
+}
 

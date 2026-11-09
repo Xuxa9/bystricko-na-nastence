@@ -267,6 +267,25 @@ const offers = [
 
     /* NABIDKA */
     {
+        id: "bystrice-nabidka-lampionovy-pruvod-1",
+        category: "nabidka",
+        title: "Lampionový průvod",
+        description: "",
+        details: [],
+        image: "images/bystrice-nabidka-lampionovy-pruvod-akce-1.jpg",
+        template: "",
+        link: "",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti", "dospeli"],
+        publishedFrom: "2026-11-09",
+        expiresAt: "2026-11-13"
+    },
+
+    {
         id: "med-bystrice-001",
         category: "nabidka",
         title: "Prodej medu",

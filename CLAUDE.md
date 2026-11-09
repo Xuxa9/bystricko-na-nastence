@@ -58,6 +58,23 @@ Začít jednoduše, později rozšiřovat.
 - 2026-11-08: **Informační stránky online** (commit `ae4fb5d`): sekce „O projektu“ na hlavní stránce,
   `pravidla.html` a `ochrana-udaju.html`, odkazy v patičce. Úkoly A1 a částečně A3 (forma souhlasu) splněny.
 
+## Plánované nabídky k přidání (zadáno 2026-11-09)
+**Pohyb:** Peak gym (zakomentovaný v `data.js`), Judo pro všechny (Karel Pročka), Sport4u kroužky (sport4u-je.cz/krouzky/),
+Freedom Art akce (freedomart.cz/akce/), Sport Active (sport-active.cz), Animal flow, Dance Style (dancestyle-bnp.webnode.cz),
+Outdoor Domanín (outdoordomanin.cz), Zimák Bystřice (zimakbystrice.cz), kroužky hokej, fotbal a tenis.
+**Místní nabídka:** centrum Kopretina, sádrové odlitky (paní …), workshop háčkování, lampionový průvod, jóga Alahotel, + 2 další.
+Postup: přidávat po skupinách, po každé skupině commit. Jednorázové akce mají `expiresAt` = den akce,
+sezónní (zimák) jen na sezónu. Když bude jednorázových akcí hodně, zvážit třetí karusel „Akce“ (šablona `akce` už existuje).
+
+## Evidence a čas (úkol B4, rozšířeno 2026-11-09)
+Tabulka bokem (Excel/Numbers/Google Sheets), **mimo složku `kodovani`**, protože obsahuje kontakty a repozitář je veřejný. Zálohovat jinam než jen na flashku.
+- **List „Nabídky“:** ID (stejné jako v `data.js`), název, kategorie, pořadatel, kontakt/web, zdroj (poslali / převzato z webu),
+  typ (plakát / šablona), od, do, osloveno (datum), odpověď, souhlas (ano / ne / není potřeba), datum souhlasu,
+  osobní údaje na plakátu (ano/ne), stav (aktivní / ukončeno / smazáno z webu + datum), poznámka.
+  Měsíčně: vyfiltrovat prošlé → smazat z `data.js` (+ obrázek), e-mail do složky „Nabídky – ukončené“.
+- **List „Čas“:** datum, minuty, typ činnosti (kód webu / obsah / administrativa a e-maily / učení), poznámka. Měsíční součty.
+  Hodí se i jako doklad dobrovolnické práce, např. pro případnou žádost o podporu od města.
+
 ## Stav 2026-11-09
 - Karusel: šipky znovu fungují (chyběly `click` listenery), rychlé klikání a reduced motion jsou opravené. Kopie při málo kartách jsou odložené.
 - Přidáno 6 oddílů Sokola jako samostatné lístky bez místa (místo se může měnit kvůli nové sokolovně).
@@ -73,7 +90,12 @@ Kruhy a štítek kategorie jsou smazané. Lístky jsou papír se stínem, stří
 selektor `.offer-card:not(.add-card):not(:has(img))`) a natočení přes `--tilt` z JS (`tilts[index % 4]`).
 Karta „Přidat“ je žlutý papírek (`--tilt` v CSS, 240px, `align-self: flex-start`) s textem „Stačí poslat jeden e-mail na …“
 a odkazem „Jak na to →“ na `pravidla.html`. `.offer-card` má teď `overflow: visible`, `.carousel-track` má `padding: 16px 0 32px`.
-Ještě zbývá: izolepa a přirozená výška u plakátů s obrázkem (až budou plakáty, viz bod 1).
+**Plakáty s obrázkem hotové 2026-11-09:** přirozená výška (`height: auto`, `max-height: 440px`, `contain`),
+`.carousel-track` má `align-items: flex-start`, text karty se u plakátu skrývá (`.offer-card:has(img) .offer-info`), izolepa přes rohy.
+Obrázek je v `<button class="poster-open">` s `data-link`. Zvětšení řeší `<dialog id="poster-dialog">` v `index.html`
+a `initPosterDialog()` v `script.js` (jeden posluchač na `document`, kvůli kopiím v karuselu). Odkaz je vidět jen ve zvětšení,
+zavírá se křížkem, klávesou Esc nebo klikem vedle.
+První plakát: lampionový průvod (poslán e-mailem 2026-11-09, „k uveřejnění“ = souhlas), visí do 2026-11-13.
 
 ### Původní zadání (pro referenci)
 Autorka viděla náhled a vybrala **variantu A** (krémové pozadí zůstává, barevnost dodají plakáty). Korek ne.
@@ -136,12 +158,12 @@ Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začno
 **B. Po přidání plakátů**
 4. [ ] **Evidence** zveřejněných plakátů a souhlasů.
 5. [ ] **Pravidla pro přijímání a odmítání plakátů**, včetně výhrady práva něco nezveřejnit. Vyvěsit na webu.
-6. [ ] **Zvětšení plakátu** po kliknutí na kartu v karuselu.
+6. [x] **Zvětšení plakátu** po kliknutí na kartu v karuselu (hotovo 2026-11-09).
 7. [ ] **Upravit popis karuselu „Místní nabídka“.** Zatím bude sloužit pro všechno, co není pohyb a kroužky
    (workshop, lampionový průvod, reklama na centrum pro děti, nabídka sádrových odlitků…).
 
 Opravy z kontrol (stav k 2026-11-05):
-1. [ ] Hotové plakáty se v kartě ořezávají (výška obrázku 220px + `object-fit: cover`), vyřešit poměr stran. **Odloženo**, až budou nahrané první plakáty.
+1. [x] Hotové plakáty se neořezávají, mají přirozenou výšku (hotovo 2026-11-09).
    Varianta A4 + `object-fit: contain` **zrušena** (2026-11-08). Autorka chce **plakáty v přirozené velikosti**:
    stejná šířka, zarovnané nahoře „na jednu linku“, spodek různě dlouhý, jako na skutečné nástěnce.
    Technicky: `height: auto` u obrázku a `align-items: flex-start` u `.carousel-track`, plus strop `max-height`.
