@@ -90,7 +90,7 @@ const offers = [
         publishedFrom: "2026-10-01",
         expiresAt: "2156-01-01"
     },
-/*
+
     {
         id: "pohyb-bystrice-posilovna-1",
         category: "pohyb",
@@ -111,7 +111,7 @@ const offers = [
         publishedFrom: "2026-10-01",
         expiresAt: "2156-01-01"
     },
-*/
+
     {
         id: "pohyb-bystrice-areal-4",
         category: "pohyb",
@@ -261,6 +261,29 @@ const offers = [
         },
         audience: ["deti", "dospeli"],
         publishedFrom: "2026-11-09",
+        expiresAt: "2027-06-30"
+    },
+
+     /* FIT KLOKAN */
+    {
+        id: "bystrice-pohyb-jumping-1",
+        category: "pohyb",
+        title: "Jumping®",
+        description: "Cvičení na trampolínách se spolkem Fit Klokan.",
+        details: [
+            "Lekce 60 minut.",
+            "Přihlášení přes rezervační systém na webu."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://www.fitklokan.cz/rezervace-jumping/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-10",
         expiresAt: "2027-06-30"
     },
 

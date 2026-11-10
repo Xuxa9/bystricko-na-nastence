@@ -63,8 +63,12 @@ Začít jednoduše, později rozšiřovat.
 Freedom Art akce (freedomart.cz/akce/), Sport Active (sport-active.cz), Animal flow, Dance Style (dancestyle-bnp.webnode.cz),
 Outdoor Domanín (outdoordomanin.cz), Zimák Bystřice (zimakbystrice.cz), kroužky hokej, fotbal a tenis.
 **Místní nabídka:** centrum Kopretina, sádrové odlitky (paní …), workshop háčkování, lampionový průvod, jóga Alahotel, + 2 další.
+**Přidáno:** Fit Klokan Jumping® (`bystrice-pohyb-jumping-1`, 2026-11-10, převzato z webu, místo cvičení neověřeno).
+Evidence (tabulka) zatím nezaložena, autorka pošle aktuální verzi, pak Claude doplní řádky (Fit Klokan, čas za 3.–9. 11.: kód 281, obsah 207, admin. 69 min).
 Postup: přidávat po skupinách, po každé skupině commit. Jednorázové akce mají `expiresAt` = den akce,
 sezónní (zimák) jen na sezónu. Když bude jednorázových akcí hodně, zvážit třetí karusel „Akce“ (šablona `akce` už existuje).
+**Rozhodnuto 2026-11-09:** filtr ani karusel „Akce“ zatím ne. Autorka řadí akce ručně na začátek části NABIDKA
+v `data.js` (pořadí v poli = pořadí v karuselu). Filtr (vyžaduje přepracování karuselu na překreslování) až s filtry děti/dospělí a obce.
 
 ## Evidence a čas (úkol B4, rozšířeno 2026-11-09)
 Tabulka bokem (Excel/Numbers/Google Sheets), **mimo složku `kodovani`**, protože obsahuje kontakty a repozitář je veřejný. Zálohovat jinam než jen na flashku.
@@ -117,7 +121,6 @@ Náhled byl jen dočasný soubor mimo projekt, proto jsou hlavní hodnoty tady:
   3) připínáček, 4) natočení, 5) žlutý papírek.
 
 ## Drobnosti k dořešení
-- Patička: v `index.html` je „Vše na jednom místě“, v `pravidla.html` a `ochrana-udaju.html` ještě „Místní nabídky na jednom místě“. Sjednotit.
 - `ochrana-udaju.html`: „Platné od 9. listopadu 2026“, ale zveřejněno 8. 11. Opravit datum, případně nechat.
 - **Pokud se na web přidá cokoli cizího** (analytika, mapy, FB tlačítko, Google Fonts), upravit v `ochrana-udaju.html` odstavec „Návštěvníci webu“ (teď: žádné cookies ani měření).
 
@@ -139,7 +142,6 @@ Náhled byl jen dočasný soubor mimo projekt, proto jsou hlavní hodnoty tady:
      Jen běžné osobní údaje na plakátu (jméno a kontakt lektora/pořadatele).
      Při odvolání souhlasu: smazat z webu a na výslovné přání vyčistit i historii repozitáře (Claude pomůže).
    - Při úklidu nabídek mazat z `data.js` i obrázky z `images/` (skryté plakáty jsou jinak pořád veřejně dostupné).
-- Oprava karuselu (body 4 a 5 níže) je **odložená** (rozhodnutí autorky 2026-11-08).
 
 ## Další úkoly (zadáno 2026-11-05)
 Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začnou přidávat skutečné plakáty, pak B.
@@ -148,7 +150,7 @@ Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začno
 1. [x] **Ochrana osobních údajů** (hotovo 2026-11-08): sepsat a zveřejnit na webu. Obsah: kdo je správce, účel zveřejňování,
    práva lidí, jak požádat o úpravu nebo odstranění plakátu, jak dlouho se data uchovávají.
    Hlavně **stručně a srozumitelně**.
-2. [ ] **Šablona e-mailu** pro první oslovení (sportovní kluby, jóga, kroužky…): představit projekt, vysvětlit,
+2. [x] (hotovo 2026-11-08, text je v konverzaci) **Šablona e-mailu** pro první oslovení (sportovní kluby, jóga, kroužky…): představit projekt, vysvětlit,
    že jde o **bezplatnou službu**, nabídnout zveřejnění plakátu, požádat o zaslání plakátu a o souhlas
    se zveřejněním (hlavně když jsou na plakátu osobní údaje).
 3. [x] **Souhlas se zveřejněním** (hotovo 2026-11-08): samostatná šablona není potřeba, stačí věta
@@ -157,7 +159,7 @@ Pořadí: nejdřív A (právní a komunikační základ), teprve potom se začno
 
 **B. Po přidání plakátů**
 4. [ ] **Evidence** zveřejněných plakátů a souhlasů.
-5. [ ] **Pravidla pro přijímání a odmítání plakátů**, včetně výhrady práva něco nezveřejnit. Vyvěsit na webu.
+5. [x] **Pravidla pro přijímání a odmítání plakátů** (hotovo 2026-11-08, `pravidla.html`, část „Co nezveřejňuji“).
 6. [x] **Zvětšení plakátu** po kliknutí na kartu v karuselu (hotovo 2026-11-09).
 7. [ ] **Upravit popis karuselu „Místní nabídka“.** Zatím bude sloužit pro všechno, co není pohyb a kroužky
    (workshop, lampionový průvod, reklama na centrum pro děti, nabídka sádrových odlitků…).
