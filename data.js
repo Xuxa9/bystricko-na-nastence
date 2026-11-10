@@ -292,6 +292,7 @@ const offers = [
     {
         id: "bystrice-nabidka-lampionovy-pruvod-1",
         category: "nabidka",
+        pinned: true,
         title: "Lampionový průvod",
         description: "",
         details: [],

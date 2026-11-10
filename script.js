@@ -162,8 +162,19 @@ function renderOffers() {
 
         activeOffers
             .filter(offer => offer.category === category)
+            .sort((a, b) => {
+                // Připíchnuté navrch (akce), v pořadí z data.js.
+                if (Boolean(a.pinned) !== Boolean(b.pinned)) {
+                    return a.pinned ? -1 : 1;
+                }
+                if (a.pinned) {
+                    return 0;
+                }
+                // Ostatní podle abecedy, s českou diakritikou.
+                return a.title.localeCompare(b.title, "cs");
+            })
             .forEach((offer, index) => {
-              track.appendChild(createOfferCard(offer, index));
+                track.appendChild(createOfferCard(offer, index));
             });
 
         // Karta pro přidání nabídky zůstane vždy na konci.
