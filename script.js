@@ -212,6 +212,8 @@ function initCarousels() {
         let index = originalCount;
         let startX = 0;
         let currentX = 0;
+        let startY = 0;
+        let currentY = 0;
 
         function updatePosition(animate = true) {
             const reduceMotion = window.matchMedia(
@@ -230,6 +232,8 @@ function initCarousels() {
         }
 
                 let isMoving = false;
+                let safetyTimer;
+
 
         // Když jsme v kopiích, skočíme nenápadně zpět na originály.
         function wrapIndex() {
@@ -256,6 +260,16 @@ function initCarousels() {
 
             isMoving = true;
             updatePosition(true);
+
+            // Pojistka: kdyby transitionend nepřišel (např. změna velikosti
+            // okna na mobilu během animace), karusel se nezasekne.
+            clearTimeout(safetyTimer);
+            safetyTimer = setTimeout(() => {
+                if (isMoving) {
+                    isMoving = false;
+                    wrapIndex();
+                }
+            }, 600);
         }
 
         nextButton.addEventListener("click", () => move(1));
@@ -270,18 +284,23 @@ function initCarousels() {
 
         windowElement.addEventListener("touchstart", event => {
             startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
             currentX = startX;
+            currentY = startY;
         }, { passive: true });
 
         windowElement.addEventListener("touchmove", event => {
             currentX = event.touches[0].clientX;
+            currentY = event.touches[0].clientY;
         }, { passive: true });
 
         windowElement.addEventListener("touchend", () => {
-            const difference = currentX - startX;
+            const differenceX = currentX - startX;
+            const differenceY = currentY - startY;
 
-            if (Math.abs(difference) > 45) {
-                move(difference < 0 ? 1 : -1);
+            // Posunout jen při vodorovném tahu, ne při rolování stránky.
+            if (Math.abs(differenceX) > 45 && Math.abs(differenceX) > Math.abs(differenceY)) {
+                move(differenceX < 0 ? 1 : -1);
             }
         });
 
