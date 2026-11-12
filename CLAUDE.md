@@ -66,6 +66,11 @@ Outdoor Domanín (outdoordomanin.cz), Zimák Bystřice (zimakbystrice.cz), krou�
 **Přidáno:** Fit Klokan Jumping® (`bystrice-pohyb-jumping-1`, 2026-11-10, převzato z webu, místo cvičení neověřeno).
 Lanový park Domanín (`domanin-pohyb-lanovy-park-1`, 2026-11-12, plakát, souhlas e-mailem, na plakátu jméno/e-mail/mobil kontaktní osoby, do 2027-10-31).
 Lokace v ID a `city` = skutečná obec (Domanín), kvůli budoucímu filtru obcí.
+2026-11-12: přidáno kvíz Harenda, street dance, judo, BOSU, Sportáček, aerobik, hokej, fotbal, pilates, atletika (24 nabídek).
+Freedom Art vyřazen (daleko). Čeká se: tenis (od kamarádky), jóga (SMS), Animal flow, včelař, škola bruslení (další kurz).
+**Evidence:** `/Volumes/NO NAME/evidence-nabidky.xlsx` (listy evidence-pohyb, evidence-nabidka, cas, evidence-sluzby), kopie na iCloudu.
+Claude do ní na požádání zapisuje (openpyxl ve venv ve scratchpadu, vždy předtím záloha). Lístky bez souhlasu: jména trenérů/lektorů neuvádět.
+Prodej medu (`med-bystrice-001`) v evidenci zatím chybí.
 Evidence (tabulka) zatím nezaložena, autorka pošle aktuální verzi, pak Claude doplní řádky (Fit Klokan, čas za 3.–9. 11.: kód 281, obsah 207, admin. 69 min).
 Postup: přidávat po skupinách, po každé skupině commit. Jednorázové akce mají `expiresAt` = den akce,
 sezónní (zimák) jen na sezónu. Když bude jednorázových akcí hodně, zvážit třetí karusel „Akce“ (šablona `akce` už existuje).

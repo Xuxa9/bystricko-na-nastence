@@ -46,6 +46,28 @@ Například přijde nabídka na keramický workshop. Uděláš tři věci:
 */
 /* POHYB */
 const offers = [
+    
+        {
+        id: "bystrice-pohyb-atletika-1",
+        category: "pohyb",
+        title: "Atletika – SK Bystřice",
+        description: "Atletická přípravka pro děti.",
+        details: [
+            "Pro děti 6 let.",
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://www.atletikaprodeti.cz/databaze-pripravek/sk-bystrice-nad-pernstejnem/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "Sportovní areál Tomáše Dvořáka",
+            address: ""
+        },
+        audience: ["deti"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+    
     {
         id: "pohyb-bystrice-DDM-1",
         category: "pohyb",
