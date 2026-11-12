@@ -64,6 +64,8 @@ Freedom Art akce (freedomart.cz/akce/), Sport Active (sport-active.cz), Animal f
 Outdoor Domanín (outdoordomanin.cz), Zimák Bystřice (zimakbystrice.cz), kroužky hokej, fotbal a tenis.
 **Místní nabídka:** centrum Kopretina, sádrové odlitky (paní …), workshop háčkování, lampionový průvod, jóga Alahotel, + 2 další.
 **Přidáno:** Fit Klokan Jumping® (`bystrice-pohyb-jumping-1`, 2026-11-10, převzato z webu, místo cvičení neověřeno).
+Lanový park Domanín (`domanin-pohyb-lanovy-park-1`, 2026-11-12, plakát, souhlas e-mailem, na plakátu jméno/e-mail/mobil kontaktní osoby, do 2027-10-31).
+Lokace v ID a `city` = skutečná obec (Domanín), kvůli budoucímu filtru obcí.
 Evidence (tabulka) zatím nezaložena, autorka pošle aktuální verzi, pak Claude doplní řádky (Fit Klokan, čas za 3.–9. 11.: kód 281, obsah 207, admin. 69 min).
 Postup: přidávat po skupinách, po každé skupině commit. Jednorázové akce mají `expiresAt` = den akce,
 sezónní (zimák) jen na sezónu. Když bude jednorázových akcí hodně, zvážit třetí karusel „Akce“ (šablona `akce` už existuje).

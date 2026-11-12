@@ -286,6 +286,26 @@ const offers = [
         publishedFrom: "2026-11-10",
         expiresAt: "2027-06-30"
     },
+    
+    /* OUTDOOR DOMANÍN */
+    {
+        id: "domanin-pohyb-lanovy-park-1",
+        category: "pohyb",
+        title: "Lanový park Domanín",
+        description: "",
+        details: [],
+        image: "images/domanin-pohyb-lanovy-park-1.jpg",
+        template: "",
+        link: "https://www.outdoordomanin.cz/",
+        location: {
+            city: "Domanín",
+            venue: "Lanový park u Borovinky",
+            address: ""
+        },
+        audience: ["deti", "dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-10-31"
+    },
 
 
     /* NABIDKA */
