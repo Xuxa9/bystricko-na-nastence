@@ -68,6 +68,72 @@ const offers = [
     },
 
     {
+        id: "bystrice-pohyb-bosu-1",
+        category: "pohyb",
+        title: "BOSU – Sport4u",
+        description: "Cvičení na balančních podložkách BOSU.",
+        details: [
+            "Každou středu 18:00–19:00.",
+            "Pro všechny věkové kategorie, intenzita podle kondice.",
+            "Cena: 80 Kč za lekci."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://sport4u-je.cz/bosu/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "ZŠ T. G. Masaryka (vchod z boku)",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+    {
+        id: "bystrice-pohyb-sportacek-1",
+        category: "pohyb",
+        title: "Sportáček – Sport4u",
+        description: "Pohybová průprava pro nejmenší: hry s padákem a míčem, rytmika.",
+        details: [
+            "Pro děti 3–7 let.",
+            "Čtvrtek 15:30–17:00."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://sport4u-je.cz/krouzky/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+
+    {
+        id: "bystrice-pohyb-aerobik-1",
+        category: "pohyb",
+        title: "Aerobik – Sport4u",
+        description: "Aerobikové kroky, skoky a práce s hudbou.",
+        details: [
+            "Příprava aerobiku, 8–11 let.",
+            "Soutěžní aerobik, dívky od 12 let."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://sport4u-je.cz/krouzky/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+
+    {
         id: "pohyb-bystrice-DDM-2",
         category: "pohyb",
         title: "Cvičení pro ženy",
@@ -92,6 +158,73 @@ const offers = [
     },
 
     {
+        id: "bystrice-pohyb-fotbal-1",
+        category: "pohyb",
+        title: "Fotbal – SK Bystřice",
+        description: "Fotbalový klub s týmy od nejmenších po dospělé.",
+        details: [
+            "Předpřípravka, přípravka, žáci, dorost.",
+            "Muži A a B."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://www.skbnp.cz/sluzby/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti", "dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+
+
+    {
+        id: "bystrice-pohyb-hokej-1",
+        category: "pohyb",
+        title: "Hokej pro děti – BK Zubři",
+        description: "Nábor dětí do hokeje na zimním stadionu v Bystřici.",
+        details: [
+            "Škola bruslení od 4 do 8 let.",
+            "Přípravka a mladší žáci."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://bkzubribystrice.cz/nabor/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "Zimní stadion",
+            address: "Nový dvůr 1489"
+        },
+        audience: ["deti"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-03-31"
+    },
+
+        {
+        id: "bystrice-pohyb-judo-1",
+        category: "pohyb",
+        title: "Judo pro všechny",
+        description: "Judo pro děti i dospělé.",
+        details: [
+            "Už od 4 let."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://www.facebook.com/p/Judo-pro-v%C5%A1echny-Karel-Pro%C4%8Dka-100057288895582/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti", "dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+
+
+    {
         id: "pohyb-bystrice-posilovna-1",
         category: "pohyb",
         title: "Peak gym",
@@ -111,6 +244,28 @@ const offers = [
         publishedFrom: "2026-10-01",
         expiresAt: "2156-01-01"
     },
+
+    {
+        id: "bystrice-pohyb-pilates-1",
+        category: "pohyb",
+        title: "Pilates – SportActive",
+        description: "Pilates, zdravá záda a funkční pohyb.",
+        details: [
+            "Rezervace přes web."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://sport-active.cz/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
+    },
+
 
     {
         id: "pohyb-bystrice-areal-4",
@@ -286,7 +441,7 @@ const offers = [
         publishedFrom: "2026-11-10",
         expiresAt: "2027-06-30"
     },
-    
+
     /* OUTDOOR DOMANÍN */
     {
         id: "domanin-pohyb-lanovy-park-1",
@@ -305,6 +460,28 @@ const offers = [
         audience: ["deti", "dospeli"],
         publishedFrom: "2026-11-12",
         expiresAt: "2027-10-31"
+    },
+
+    /* DANCE STYLE */
+    {
+        id: "bystrice-pohyb-street-dance-1",
+        category: "pohyb",
+        title: "Street dance – Dance Style",
+        description: "Taneční skupiny pro děti a mládež.",
+        details: [
+            "Od 5 do 25 let, skupiny podle věku.",
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://dancestyle-bnp.webnode.cz/skupiny/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "",
+            address: ""
+        },
+        audience: ["deti"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2027-06-30"
     },
 
 
@@ -328,6 +505,31 @@ const offers = [
         publishedFrom: "2026-11-09",
         expiresAt: "2026-11-13"
     },
+
+        /* KVÍZ HARENDA */
+    {
+        id: "bystrice-nabidka-kviz-1",
+        category: "nabidka",
+        title: "Hospodský kvíz – Harenda",
+        description: "Týmová vědomostní hra.",
+        details: [
+            "Každou středu 18:00–20:00.",
+            "Jednou za měsíc tematický speciál.",
+            "Přihlášení na webu."
+        ],
+        image: "",
+        template: "akce",
+        link: "https://www.facebook.com/groups/kvizharenda/",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "Harenda",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-12",
+        expiresAt: "2026-12-31"
+    },
+
 
     {
         id: "med-bystrice-001",
