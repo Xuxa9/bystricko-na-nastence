@@ -554,24 +554,28 @@ const offers = [
         expiresAt: "2026-12-31"
     },
 
-
+      /* CENTRUM KOPRETINA */
     {
-        id: "med-bystrice-001",
+        id: "bystrice-nabidka-kopretina-1",
         category: "nabidka",
-        title: "Prodej medu",
-        description: "Pravý lesní med.",
-         details: [
-        "Cena: 250 Kč.",
-        ],image: "",
+        title: "Centrum Kopretina",
+        description: "Herna se zázemím pro rodiče s dětmi.",
+        details: [
+            "Aktuální měsíční program a otvírací doba na facebooku.",
+            "Pravidelné programy pro děti.",
+            "Přednášky pro rodiče."
+        ],
+        image: "",
         template: "nabidka",
-        link: "",
+        link: "https://www.facebook.com/kopretinaby/",
         location: {
             city: "Bystřice nad Pernštejnem",
             venue: "",
-            address: ""
+            address: "Hornická 643"
         },
-        audience: ["dospeli"],
-        publishedFrom: "2026-10-01",
-        expiresAt: "2026-12-31"
-    }
+        audience: ["deti"],
+        publishedFrom: "2026-11-14",
+        expiresAt: "2027-06-30"
+    },
+
 ];
