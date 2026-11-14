@@ -508,24 +508,26 @@ const offers = [
 
 
     /* NABIDKA */
+    
+    /* LAMPIONOVÝ PRŮVOD DOLNÍ ROŽÍNKA */
     {
-        id: "bystrice-nabidka-lampionovy-pruvod-1",
+        id: "dolni-rozinka-nabidka-lampionovy-pruvod-1",
         category: "nabidka",
         pinned: true,
-        title: "Lampionový průvod",
+        title: "Lampionový průvod – Dolní Rožínka",
         description: "",
         details: [],
-        image: "images/bystrice-nabidka-lampionovy-pruvod-akce-1.jpg",
+        image: "images/dolni-rozinka-nabidka-lampionovy-pruvod-akce-1.jpg",
         template: "",
         link: "",
         location: {
-            city: "Bystřice nad Pernštejnem",
+            city: "Dolní Rožínka",
             venue: "",
             address: ""
         },
         audience: ["deti", "dospeli"],
-        publishedFrom: "2026-11-09",
-        expiresAt: "2026-11-13"
+        publishedFrom: "2026-11-14",
+        expiresAt: "2026-11-16"
     },
 
         /* KVÍZ HARENDA */

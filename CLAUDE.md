@@ -8,6 +8,7 @@ Claude Code ho načte automaticky při každém spuštění, takže se nemusí v
 - Claude **kontroluje** existující kód a dává zpětnou vazbu.
 - Nový kód Claude **připraví jako ukázku, vysvětlí ho a řekne, kam přesně ho vložit**.
   Do souborů ho vkládá autorka **sama ručně**. Claude její soubory s kódem needituje.
+- **Commit a push dělá autorka sama.** Claude jen navrhne zprávu commitu, git používá jen ke kontrole (status, diff, log).
 - Postupujeme po malých krocích a po každé změně ji vyzkoušíme v prohlížeči.
 
 ## O projektu
@@ -209,11 +210,11 @@ Opravy z kontrol (stav k 2026-11-05):
 - Evidence: list `evidence-sluzby` zatím zůstává, případně přejmenovat na tábory.
 
 ## Rozpracováno 2026-11-14
-1. Žluté lístečky „Přidat“ (`createAddCard`): nový text.
-2. `pravidla.html`: zmínit **pravidelnou spolupráci**, upravit „Co zveřejňuji“ (bez služeb, + tábory), přidat nabídky
-   převzaté z veřejných zdrojů. Duplicitní odstavec „Plakáty zveřejňuji tak, jak je pošlete…“ (ř. 59 a 79), chybí mezera „zveřejněním,například“.
-3. `ochrana-udaju.html`: doplnit (právní základ, převzaté informace bez souhlasu, právo námitky, stížnost u ÚOOÚ,
-   evidence v Excelu (bez kontaktů, jen lokálně), předávání do USA (jen GitHub), datum platnosti, čárka na konci seznamu práv).
+1. [x] Žluté lístečky: příklady nabídek (`.add-examples`) a „Zdarma.“ (commit `8f850e9`).
+2. [x] `pravidla.html`: „Co primárně zveřejňuji“ (+ tábory, bez služeb), „Pravidelná spolupráce“, „Nabídky z veřejných zdrojů“.
+   Formát plakátu záměrně neuvádět („Plakát nebo leták.“), autorka chce jednoduchost, převede si sama.
+3. [x] `ochrana-udaju.html`: právní základ, převzaté nabídky, přehled nabídek bez kontaktů, GitHub + USA (DPF),
+   námitka a stížnost u ÚOOÚ, datum „platné od 8. 11., aktualizováno 14. 11. 2026“.
 4. Viditelnost: Google Search Console, Seznam Webmaster, `sitemap.xml`, `robots.txt`, Open Graph (náhled při sdílení), favicon.
 5. Návštěvnost **bez cookies**: návrh GoatCounter (zdarma pro nekomerční weby), případně Cloudflare Web Analytics.
    Po přidání upravit v `ochrana-udaju.html` odstavec „Návštěvníci webu“.
