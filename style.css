@@ -251,6 +251,10 @@ a {
     color: #6a5d45;
 }
 
+.add-card .add-examples {
+    margin-bottom: 10px;
+}
+
 .add-card .offer-link {
     color: var(--brown);
 }

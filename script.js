@@ -24,7 +24,6 @@ function getActiveOffers() {
     );
 }
 
-
 /* =====================================
    2. VYTVOŘENÍ KARTY NABÍDKY
 ===================================== */
@@ -127,6 +126,13 @@ function createAddCard(category) {
         ? "Chcete tu být také?"
         : "Máte co nabídnout?";
 
+    // Příklady, co se dá poslat (pro každý karusel jiné)
+    const examples = document.createElement("p");
+    examples.className = "add-examples";
+    examples.textContent = category === "pohyb"
+        ? "Kroužky, cvičení a pohyb."
+        : "Domácí produkty, workshopy, akce, ale i přebytky ze zahrady.";
+
     // Popisek s klikací e-mailovou adresou
     const emailLink = document.createElement("a");
     emailLink.href = category === "pohyb"
@@ -135,7 +141,7 @@ function createAddCard(category) {
     emailLink.textContent = "nanastence@email.cz";
 
     const description = document.createElement("p");
-    description.append("Stačí poslat jeden e-mail na ", emailLink, ".");
+    description.append("Zdarma. Stačí jen napsat na ", emailLink, ".");
 
     // Odkaz na pravidla s podrobným postupem
     const rulesLink = document.createElement("a");
@@ -143,7 +149,8 @@ function createAddCard(category) {
     rulesLink.href = "pravidla.html";
     rulesLink.textContent = "Jak na to →";
 
-    card.append(symbol, title, description, rulesLink);
+    card.append(symbol, title, examples, description, rulesLink);
+
     return card;
 }
 

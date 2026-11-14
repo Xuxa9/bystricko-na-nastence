@@ -68,8 +68,11 @@ Lanový park Domanín (`domanin-pohyb-lanovy-park-1`, 2026-11-12, plakát, souhl
 Lokace v ID a `city` = skutečná obec (Domanín), kvůli budoucímu filtru obcí.
 2026-11-12: přidáno kvíz Harenda, street dance, judo, BOSU, Sportáček, aerobik, hokej, fotbal, pilates, atletika (24 nabídek).
 Freedom Art vyřazen (daleko). Čeká se: tenis (od kamarádky), jóga (SMS), Animal flow, včelař, škola bruslení (další kurz).
-**Evidence:** `/Volumes/NO NAME/evidence-nabidky.xlsx` (listy evidence-pohyb, evidence-nabidka, cas, evidence-sluzby), kopie na iCloudu.
+**Evidence:** `/Volumes/NO NAME/evidence-nabidky.xlsx` (listy evidence-pohyb, evidence-nabidka, cas, evidence-sluzby).
+Záloha je v **Google Docs** a obsahuje jen ID nabídek a data, žádné osobní údaje (proto Google ani Apple v `ochrana-udaju.html` nejsou). iCloud autorka nemá.
 Claude do ní na požádání zapisuje (openpyxl ve venv ve scratchpadu, vždy předtím záloha). Lístky bez souhlasu: jména trenérů/lektorů neuvádět.
+**Pravidlo autorky:** do evidence se **nepíšou konkrétní e-maily ani telefony** (ani firemní). Do sloupce „Kontakt / web“ jen odkaz na web/FB.
+Kontakty zůstávají jen v e-mailové schránce. (2026-11-14 Claude omylem zapsal 2 firemní e-maily, odstraněno.)
 Prodej medu (`med-bystrice-001`) v evidenci zatím chybí.
 Evidence (tabulka) zatím nezaložena, autorka pošle aktuální verzi, pak Claude doplní řádky (Fit Klokan, čas za 3.–9. 11.: kód 281, obsah 207, admin. 69 min).
 Postup: přidávat po skupinách, po každé skupině commit. Jednorázové akce mají `expiresAt` = den akce,
@@ -197,10 +200,28 @@ Opravy z kontrol (stav k 2026-11-05):
 10. [x] `.gitignore` (`._*`, `.DS_Store`) přidán, `._` soubory z repozitáře pryč (2026-11-05).
 11. [ ] Drobnost: v `index.html` na řádku 42 je tlačítko na stejném řádku jako `<div class="carousel">`.
 
+## Zaměření a odlišení (rozhodnuto 2026-11-14)
+- Autorka našla podobný web **regionbystricko.cz** a chce se od něj odlišit.
+- **Karusel Služby nebude.** Místo něj bude karusel **Letní tábory**, viditelný jen **od 1. 1. do konce prázdnin (31. 8.)**.
+  Technicky: tábory mají `publishedFrom`/`expiresAt` v tomto rozmezí, prázdný karusel se celý skryje (zatím neřešeno).
+- Zaměření: **malé místní subjekty**, sportovní aktivity, workshopy, malé místní akce. Ne velké firmy a služby.
+- Propagace: autorka zvažuje vylepit vlastní plakát na veřejném místě (případně s QR kódem na web).
+- Evidence: list `evidence-sluzby` zatím zůstává, případně přejmenovat na tábory.
+
+## Rozpracováno 2026-11-14
+1. Žluté lístečky „Přidat“ (`createAddCard`): nový text.
+2. `pravidla.html`: zmínit **pravidelnou spolupráci**, upravit „Co zveřejňuji“ (bez služeb, + tábory), přidat nabídky
+   převzaté z veřejných zdrojů. Duplicitní odstavec „Plakáty zveřejňuji tak, jak je pošlete…“ (ř. 59 a 79), chybí mezera „zveřejněním,například“.
+3. `ochrana-udaju.html`: doplnit (právní základ, převzaté informace bez souhlasu, právo námitky, stížnost u ÚOOÚ,
+   evidence v Excelu (bez kontaktů, jen lokálně), předávání do USA (jen GitHub), datum platnosti, čárka na konci seznamu práv).
+4. Viditelnost: Google Search Console, Seznam Webmaster, `sitemap.xml`, `robots.txt`, Open Graph (náhled při sdílení), favicon.
+5. Návštěvnost **bez cookies**: návrh GoatCounter (zdarma pro nekomerční weby), případně Cloudflare Web Analytics.
+   Po přidání upravit v `ochrana-udaju.html` odstavec „Návštěvníci webu“.
+
 ## Nápady a úkoly do budoucna
 - Filtrování: děti / dospělí.
 - Filtrování podle lokality: Bystřice a okolní obce.
-- Karusel **Služby** s filtrováním podle kategorie a lokality.
+- ~~Karusel Služby~~ zrušeno 2026-11-14, nahrazen karuselem Letní tábory.
 - Kontaktní formulář a automatizace přidávání nabídek. Položky formuláře jsou stejné jako v `pravidla.html`, část
   „Jak poslat nabídku“ (kam patří, název, popis, místo, od–do, podrobnosti, pro koho, odkaz, obrázek, souhlas).
   GitHub Pages formuláře sám neodesílá, bude potřeba externí služba.
