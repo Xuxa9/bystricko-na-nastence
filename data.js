@@ -224,6 +224,26 @@ const offers = [
         expiresAt: "2027-03-31"
     },
 
+        /* JÓGA S */
+    {
+        id: "bystrice-pohyb-joga-1",
+        category: "pohyb",
+        title: "Jóga – čtvrtek, ZŠ TGM",
+        description: "",
+        details: [],
+        image: "images/bystrice-pohyb-joga-s-1.jpg",
+        template: "",
+        link: "",
+        location: {
+            city: "Bystřice nad Pernštejnem",
+            venue: "ZŠ TGM, tělocvična",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-16",
+        expiresAt: "2027-06-30"
+    },
+
         {
         id: "bystrice-pohyb-judo-1",
         category: "pohyb",
