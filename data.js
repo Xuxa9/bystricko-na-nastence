@@ -402,14 +402,14 @@ const offers = [
     {
         id: "bystrice-pohyb-posilovna-2",
         category: "pohyb",
-        title: "Posilovna Sokol",
-        description: "Posilovna TJ Sokol Bystřice nad Pernštejnem.",
+        title: "Posilovna a sálové lekce Sokol",
+        description: "Posilovna a skupinové lekce TJ Sokol Bystřice nad Pernštejnem.",
         details: [
-            "Pro členy i veřejnost."
+            "Lekce se rezervují online."
         ],
         image: "",
         template: "pohyb",
-        link: "https://www.sokolbystricenp.eu/posilovna/",
+        link: "https://rezervace-sokol.cz",
         location: {
             city: "Bystřice nad Pernštejnem",
             venue: "",
