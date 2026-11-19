@@ -47,6 +47,30 @@ Například přijde nabídka na keramický workshop. Uděláš tři věci:
 /* POHYB */
 const offers = [
     
+        /* ANIMAL FLOW ROZSOCHY */
+    {
+        id: "rozsochy-pohyb-animal-flow-1",
+        category: "pohyb",
+        title: "Animal Flow",
+        description: "Lekce pro nováčky. Přijďte si vyzkoušet základy a užít si pohyb.",
+        details: [
+            "Úterý 16:30–17:30.",
+            "150 Kč za lekci.",
+            "Nemusíš mít žádné předchozí zkušenosti. Přijď si Animal Flow vyzkoušet, naučit se základy a hlavně si pořádně užít pohyb."
+        ],
+        image: "",
+        template: "pohyb",
+        link: "https://www.instagram.com/jaroslavahlouskova/",
+        location: {
+            city: "Rozsochy",
+            venue: "ZŠ Rozsochy, tělocvična",
+            address: ""
+        },
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-19",
+        expiresAt: "2027-06-30"
+    },
+
         {
         id: "bystrice-pohyb-atletika-1",
         category: "pohyb",
@@ -529,26 +553,27 @@ const offers = [
 
     /* NABIDKA */
     
-    /* LAMPIONOVÝ PRŮVOD DOLNÍ ROŽÍNKA */
+    /* VÁNOČNÍ ANIMAL FLOW JAM */
     {
-        id: "dolni-rozinka-nabidka-lampionovy-pruvod-1",
+        id: "bystrice-nabidka-animal-flow-1",
         category: "nabidka",
         pinned: true,
-        title: "Lampionový průvod – Dolní Rožínka",
+        title: "Vánoční Animal Flow Jam",
         description: "",
         details: [],
-        image: "images/dolni-rozinka-nabidka-lampionovy-pruvod-akce-1.jpg",
+        image: "images/bystrice-nabidka-animal-flow-1.jpg",
         template: "",
-        link: "",
+        link: "https://www.instagram.com/jaroslavahlouskova/",
         location: {
-            city: "Dolní Rožínka",
-            venue: "",
+            city: "Bystřice nad Pernštejnem",
+            venue: "Aula gymnázia",
             address: ""
         },
-        audience: ["deti", "dospeli"],
-        publishedFrom: "2026-11-14",
-        expiresAt: "2026-11-16"
+        audience: ["dospeli"],
+        publishedFrom: "2026-11-19",
+        expiresAt: "2026-12-11"
     },
+
 
         /* KVÍZ HARENDA */
     {
