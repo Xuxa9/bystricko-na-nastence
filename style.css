@@ -342,6 +342,23 @@ a {
     padding-left: 24px;
 }
 
+.about-section h3 {
+    margin: 22px 0 8px;
+    font-size: 1.15rem;
+    color: var(--brown-dark);
+}
+
+.about-section ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.about-section li {
+    margin-bottom: 4px;
+}
+
+
 /* TEXTOVÉ STRÁNKY (pravidla, ochrana údajů) */
 
 .page-header {
