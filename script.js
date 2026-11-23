@@ -143,10 +143,10 @@ function createAddCard(category) {
     const description = document.createElement("p");
     description.append("Zdarma. Stačí jen napsat na ", emailLink, ".");
 
-    // Odkaz na pravidla s podrobným postupem
+    // Odkaz na stránku s postupem, jak poslat nabídku
     const rulesLink = document.createElement("a");
     rulesLink.className = "offer-link";
-    rulesLink.href = "pravidla.html";
+    rulesLink.href = "pridat-nabidku.html";
     rulesLink.textContent = "Jak na to →";
 
     card.append(symbol, title, examples, description, rulesLink);
