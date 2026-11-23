@@ -558,6 +558,7 @@ const offers = [
         id: "bystrice-nabidka-animal-flow-1",
         category: "nabidka",
         pinned: true,
+        tag: "akce",
         title: "Vánoční Animal Flow Jam",
         description: "",
         details: [],
@@ -579,6 +580,7 @@ const offers = [
     {
         id: "bystrice-nabidka-kviz-1",
         category: "nabidka",
+        tag: "akce",
         title: "Hospodský kvíz – Harenda",
         description: "Týmová vědomostní hra.",
         details: [
@@ -603,6 +605,7 @@ const offers = [
     {
         id: "bystrice-nabidka-kopretina-1",
         category: "nabidka",
+        tag: "podniky",
         title: "Centrum Kopretina",
         description: "Herna se zázemím pro rodiče s dětmi.",
         details: [

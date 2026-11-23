@@ -9,6 +9,14 @@ const categoryNames = {
     sluzby: "Služby"
 };
 
+// Štítky v Místní nabídce (v data.js pole tag)
+const tagNames = {
+    produkty: "Lokální produkty",
+    tvorba: "Tvorba a výrobky",
+    akce: "Akce a workshopy",
+    podniky: "Podniky a služby"
+};
+
 function getActiveOffers() {
     // Použijeme místní kalendářní datum.
     const now = new Date();
@@ -74,6 +82,14 @@ function createOfferCard(offer, index = 0) {
     ].filter(Boolean);
 
     location.textContent = locationParts.join(", ");
+    
+    // Nenápadný štítek nad nadpisem (jen když ho nabídka má)
+    if (offer.tag && tagNames[offer.tag]) {
+        const tag = document.createElement("span");
+        tag.className = "offer-tag";
+        tag.textContent = tagNames[offer.tag];
+        info.appendChild(tag);
+    }
 
     info.append(title, description);
 
